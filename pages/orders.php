@@ -17,8 +17,8 @@ include '../partials/navigation.php';
 
 
 <!-- component -->
-<div class="container ml-20 mt-5">
-	<table class="text-left w-full">
+<div class="container m-auto mt-14">
+	<table class="text-left w-4/5 m-auto">
 		<thead class="bg-[#31087B] flex text-white w-full">
 			<tr class="flex w-full mb-4">
 				<th class="p-4 w-1/4">One</th>
@@ -28,7 +28,7 @@ include '../partials/navigation.php';
 			</tr>
 		</thead>
     <!-- Remove the nasty inline CSS fixed height on production and replace it with a CSS class — this is just for demonstration purposes! -->
-		<tbody class="bg-[#FA2FB5] flex items-center justify-between overflow-y-scroll w-full h-full" style="height: 45vh; width: 85vw;">
+		<tbody class="bg-[#FA2FB5] flex items-center justify-between overflow-y-scroll w-full h-full" style="height: 45vh;">
 			<tr class="flex w-full mb-4">
 				<td class="p-4 w-1/4">Dogs</td>
 				<td class="p-4 w-1/4">Cats</td>

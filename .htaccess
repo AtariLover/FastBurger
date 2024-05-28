@@ -21,6 +21,7 @@ RewriteEngine On
 RewriteRule ^dash$ index.php [L]
 RewriteRule ^shift$ pages/shift.php [L]
 RewriteRule ^order$ pages/orders.php [L]
+RewriteRule ^stock$ pages/stock.php [L]
 
 
 
