@@ -15,10 +15,6 @@ include 'partials/navigation.php';
 </header>
 
 
-
-<p>Home Page<p>
-
-
 <?php
 include 'partials/footer.php';
 ?>

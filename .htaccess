@@ -17,7 +17,8 @@ RewriteEngine On
 #  potentially match a URL, but you only want one of them to be applied.
 
 # General rewrite
-RewriteRule ^/$ index.php [L]
+
+RewriteRule ^index$ index.php [L]
 RewriteRule ^shift$ pages/shift.php [L]
 RewriteRule ^order$ pages/order.php [L]
 
