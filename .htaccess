@@ -18,9 +18,9 @@ RewriteEngine On
 
 # General rewrite
 
-RewriteRule ^index$ index.php [L]
+RewriteRule ^dash$ index.php [L]
 RewriteRule ^shift$ pages/shift.php [L]
-RewriteRule ^order$ pages/order.php [L]
+RewriteRule ^order$ pages/orders.php [L]
 
 
 
