@@ -23,5 +23,7 @@ RewriteRule ^shift$ pages/shift.php [L]
 RewriteRule ^order$ pages/orders.php [L]
 RewriteRule ^stock$ pages/stock.php [L]
 
+RewriteRule ^moreInfo/([0-9]+)$ pages/moreInfo.php?oid=$1 [L]
+
 
 

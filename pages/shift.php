@@ -6,7 +6,7 @@ include '../partials/navigation.php';
 
 
 
-<header class="bg-[#FA2FB5] text-black py-8">
+<header class="bg-[#FA2FB5] text-black py-6">
     <div class="container mx-auto flex items-left">
         <div class="w-1">
             <h1 class="text-5xl" style="color: White;">Shifts</h1>
@@ -15,28 +15,41 @@ include '../partials/navigation.php';
     </div>
 </header>
 
-<!-- component -->
-<div class="container m-auto mt-14">
-	<table class="text-left w-4/5 m-auto">
-		<thead class="bg-[#31087B] flex text-white w-full">
-			<tr class="flex w-full mb-4">
-				<th class="p-4 w-1/4">One</th>
-				<th class="p-4 w-1/4">Two</th>
-				<th class="p-4 w-1/4">Three</th>
-				<th class="p-4 w-1/4">Four</th>
-			</tr>
-		</thead>
-    <!-- Remove the nasty inline CSS fixed height on production and replace it with a CSS class — this is just for demonstration purposes! -->
-		<tbody class="bg-[#FA2FB5] flex items-center justify-between overflow-y-scroll w-full h-full" style="height: 45vh;">
-			<tr class="flex w-full mb-4">
-				<td class="p-4 w-1/4">Dogs</td>
-				<td class="p-4 w-1/4">Cats</td>
-				<td class="p-4 w-1/4">Birds</td>
-				<td class="p-4 w-1/4">Fish</td>
-			</tr>
-			
-		</tbody>
-	</table>
+<?php
+$staff = $conn->prepare("SELECT 
+s.staff_firstname,
+s.staff_surname,
+s.staff_role,
+s.staff_shift
+FROM `staff` s
+GROUP BY s.staff_id, s.staff_firstname, s.staff_surname, s.staff_shift
+;
+");
+$staff->execute();
+$staff->store_result();
+$staff->bind_result($firstName, $surname, $role, $shift);
+?>
+<div class="overflow-hidden rounded-lg border border-[#31087B] shadow-md m-5" style="max-height: 450px; overflow-y: auto;">
+  <table class="w-full border-collapse bg-[#31087B] text-left text-sm text-white">
+    <thead class="bg-[#FA2FB5]">
+      <tr>
+        <th scope="col" class="px-6 py-4 font-medium text-white">Firstname</th>
+        <th scope="col" class="px-6 py-4 font-medium text-white">Surname</th>
+        <th scope="col" class="px-6 py-4 font-medium text-white">Role</th>
+        <th scope="col" class="px-6 py-4 font-medium text-white">Shift</th>
+      </tr>
+    </thead>
+    <tbody class="divide-y divide-[#FA2FB5] border-t border-[#FA2FB5]">
+         <?php while($staff->fetch()) : ?>
+            <tr class="hover:bg-[#31087B]">
+                <td class="px-6 py-4"> <?= $firstName ?></td>
+                <td class="px-6 py-4"><?= $surname ?></td>
+                <td class="px-6 py-4"><?= $role ?></td>
+                <td class="px-6 py-4"><span class="inline-flex items-center gap-1 rounded-full bg-[#FA2FB5] px-2 py-1 text-xs font-semibold text-white"><?= $shift ?></td>
+         </tr>
+        <?php endwhile ?>
+    </tbody>
+  </table>
 </div>
 
 <body style="background-color:#31087B">
